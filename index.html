@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101513" />
+  <title>ASHES OF TOMORROW — A survival story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell" id="gameShell">
+    <canvas id="game" aria-label="Ashes of Tomorrow game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Ashes of Tomorrow home"><span class="brand-mark">A</span><span>ASHES <i>OF</i> TOMORROW</span></a>
+      <div class="chapter"><span class="live-dot"></span><span>2041&nbsp; / &nbsp;DAY 06</span><b>THE QUIET MILE</b></div>
+      <div class="top-actions"><span class="save-status" id="saveStatus">●&nbsp; FIELD LOG SYNCED</span><button class="icon-btn" id="audioBtn" title="Toggle audio">♫</button><button class="icon-btn" id="pauseBtn" title="Pause (Esc)">Ⅱ</button></div>
+    </header>
+    <section class="hud-left" aria-label="Survival status">
+      <div class="survivor-card"><div class="avatar">M<span>R</span></div><div><small>FIELD OPERATIVE</small><strong>MARA REYES</strong><em>SCAVENGER · LVL 03</em></div><div class="level">03</div></div>
+      <div class="vitals">
+        <div class="vital"><div class="vital-label"><span>HEALTH</span><b id="healthNum">82</b></div><div class="meter"><i class="health-fill" id="healthFill"></i></div></div>
+        <div class="vital"><div class="vital-label"><span>STAMINA</span><b id="staminaNum">74</b></div><div class="meter"><i class="stamina-fill" id="staminaFill"></i></div></div>
+        <div class="needs"><div class="need"><span>⌁</span><i class="need-track"><b id="hungerFill"></b></i><small id="hungerNum">68</small></div><div class="need"><span>◉</span><i class="need-track"><b id="thirstFill"></b></i><small id="thirstNum">54</small></div><div class="need temp"><span>❄</span><i class="need-track"><b id="tempFill"></b></i><small id="tempNum">31°</small></div></div>
+      </div>
+    </section>
+    <section class="mission-card" id="missionCard"><div class="eyebrow"><span class="diamond">◆</span> ACTIVE OBJECTIVE <span class="distance" id="distance">—</span></div><h2 id="questTitle">A SIGNAL IN THE STATIC</h2><p id="questText">Find the source of the emergency broadcast.</p><div class="objective-line"><span class="check-box" id="objectiveCheck"></span><span id="objectiveText">Reach the old relay station</span></div><div class="quest-progress"><i id="questProgress"></i></div></section>
+    <div class="location-tag"><span class="loc-icon">⌖</span><div><small>REGION 04 — OUTER DISTRICT</small><strong id="locationName">THE QUIET MILE</strong></div></div>
+    <aside class="weather"><span class="weather-icon">☂</span><div><b id="weatherName">ACID RAIN</b><small>VISIBILITY 42 M</small></div><div class="wind"><span>WIND</span><i>◂◂◂</i></div></aside>
+    <div class="interaction-prompt" id="interactionPrompt"><kbd>E</kbd><span>INTERACT</span></div>
+    <div class="toast" id="toast"></div>
+    <nav class="bottom-hud"><div class="weapon"><div class="weapon-icon">⌁</div><div><small>PRIMARY · SLOT 1</small><strong id="weaponName">SERVICE PISTOL</strong></div><div class="ammo"><b id="ammoCount">08</b><span>/ <i id="reserveAmmo">24</i></span></div></div><div class="quickbar"><span class="quick-hint">QUICK USE</span><button data-quick="bandage"><kbd>1</kbd><span>✚</span><small id="bandageCount">2</small></button><button data-quick="food"><kbd>2</kbd><span>◒</span><small id="foodCount">1</small></button><button data-quick="water"><kbd>3</kbd><span>◉</span><small id="waterCount">2</small></button></div><div class="controls-hint"><span><kbd>A</kbd><kbd>D</kbd> MOVE</span><span><kbd>SPACE</kbd> JUMP</span><span><kbd>CLICK</kbd> FIRE</span><span><kbd>E</kbd> USE</span></div></nav>
+    <div class="side-tabs"><button data-panel="inventory"><span>▤</span> PACK <kbd>TAB</kbd></button><button data-panel="journal"><span>☷</span> JOURNAL <kbd>J</kbd></button><button data-panel="map"><span>⌖</span> MAP <kbd>M</kbd></button></div>
+    <div class="crosshair" id="crosshair"></div>
+    <section class="title-screen" id="titleScreen"><div class="title-content"><div class="title-eyebrow">A POST-COLLAPSE SURVIVAL RPG · 2041</div><h1>ASHES<span>OF TOMORROW</span></h1><p>Five years after the world ended, the truth is still buried. Follow a voice through the rain. Decide what deserves to survive.</p><div class="title-meta"><span>ONE SURVIVOR</span><span>NO EASY ANSWERS</span><span>YOUR CHOICES REMAIN</span></div><button class="start-btn" id="startBtn">BEGIN YOUR STORY <span>↗</span></button><button class="continue-link" id="continueBtn">CONTINUE FIELD LOG &nbsp;·&nbsp; DAY 06</button></div><div class="title-note"><b>FIELD RECORDING 006 / OUTER DISTRICT</b>WEATHER WARNING — ACID PRECIPITATION<br>THREAT LEVEL: UNKNOWN</div></section>
+    <div class="screen-overlay" id="screenOverlay"><div class="modal" id="modal"></div></div>
+    <div class="touch-controls"><button id="touchLeft">◀</button><button id="touchRight">▶</button><button id="touchJump">↟</button><button id="touchFire">●</button><button id="touchUse">E</button></div>
+    <div class="screen-grain"></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
